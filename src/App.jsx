@@ -43,7 +43,7 @@ function App() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-12">
+    <div className="mx-auto max-w-3xl px-6 py-12 max-sm:px-4 max-sm:py-6">
       <Navbar pathname={pathname} onNavigate={handleNavigate} />
 
       {pathname === "/blog" ? (

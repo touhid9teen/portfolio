@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const w = " .·:+*#@";
 const d = 90;
@@ -104,8 +104,35 @@ function P(s) {
   return m.join('\n');
 }
 
+function getMobileLayout(width) {
+  if (width < 360) {
+    return { isMobile: true, scale: 0.48, height: 300 };
+  }
+
+  if (width < 420) {
+    return { isMobile: true, scale: 0.58, height: 350 };
+  }
+
+  if (width < 640) {
+    return { isMobile: true, scale: 0.72, height: 430 };
+  }
+
+  return { isMobile: false, scale: 1, height: 607 };
+}
+
 export default function AsciiGalaxy({ children }) {
   const containerRef = useRef(null);
+  const [layout, setLayout] = useState(() => getMobileLayout(window.innerWidth));
+
+  useEffect(() => {
+    const handleResize = () => {
+      setLayout(getMobileLayout(window.innerWidth));
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     let animationFrameId;
@@ -121,14 +148,27 @@ export default function AsciiGalaxy({ children }) {
   }, []);
 
   return (
-    <div className="relative flex justify-center items-center mb-6 h-[607px] w-full">
+    <div
+      className="relative flex justify-center items-center mb-6 h-[607px] w-full"
+      style={layout.isMobile ? { height: `${layout.height}px`, overflow: 'hidden' } : undefined}
+    >
       <pre
         ref={containerRef}
         className="absolute w-max h-[607px] font-mono text-xs leading-[1.1] select-none z-0"
-        style={{ fontFamily: '"Monaspace Neon", monospace' }}
+        style={
+          layout.isMobile
+            ? {
+                fontFamily: '"Monaspace Neon", monospace',
+                left: '50%',
+                top: '50%',
+                transform: `translate(-50%, -50%) scale(${layout.scale})`,
+                transformOrigin: 'center',
+              }
+            : { fontFamily: '"Monaspace Neon", monospace' }
+        }
       ></pre>
       {children && (
-        <div className="relative z-10 w-full flex justify-center">
+        <div className={`relative z-10 w-full flex justify-center${layout.isMobile ? " px-2" : ""}`}>
           {children}
         </div>
       )}

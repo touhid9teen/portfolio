@@ -1,0 +1,265 @@
+:root {
+  --hero-glass-bg: rgb(255 255 255 / 0.03);
+  --hero-glass-shadow:
+    0 24px 80px rgba(2, 6, 23, 0.45),
+    0 0 28px rgba(79, 70, 229, 0.16);
+  --hero-ring-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+  --hero-ring-shadow: 0 0 20px 4px rgba(99, 102, 241, 0.5);
+  --hero-social-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+  --hero-badge-color: #c4b5fd;
+  --hero-badge-shadow: 0 0 10px rgba(139, 92, 246, 0.35), 0 0 22px rgba(99, 102, 241, 0.18);
+  --hero-name-color: #f8fbff;
+  --hero-name-shadow: 0 0 12px rgba(147, 197, 253, 0.16), 0 0 28px rgba(99, 102, 241, 0.22);
+  --hero-role-color: #dbeafe;
+  --hero-role-shadow: 0 0 12px rgba(96, 165, 250, 0.14);
+  --hero-link-color: #67e8f9;
+  --hero-link-shadow: 0 0 12px rgba(103, 232, 249, 0.45);
+  --hero-meta-color: #a5b4fc;
+  --hero-meta-shadow: 0 0 10px rgba(99, 102, 241, 0.22);
+  --hero-stack-gap: 0.5rem;
+  --hero-panel-px: 1.5rem;
+  --hero-panel-py: 1.75rem;
+  --hero-avatar-card-px: 0.875rem;
+  --hero-avatar-card-py: 0.5rem;
+  --hero-avatar-frame-size: 68px;
+  --hero-avatar-image-size: 90px;
+  --hero-badge-font-size: 11px;
+  --hero-badge-tracking: 0.22em;
+  --hero-name-font-size: 1.75rem;
+  --hero-role-font-size: 1rem;
+  --hero-meta-font-size: 11px;
+  --hero-meta-tracking: 0.16em;
+  --hero-social-gap: 0.875rem;
+  --hero-social-padding: 0.75rem;
+  --hero-social-icon-size: 1.25rem;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --hero-panel-px: 1rem;
+    --hero-panel-py: 1.25rem;
+    --hero-avatar-card-py: 0.375rem;
+    --hero-avatar-frame-size: 64px;
+    --hero-avatar-image-size: 84px;
+    --hero-badge-font-size: 9px;
+    --hero-badge-tracking: 0.18em;
+    --hero-name-font-size: 1.55rem;
+    --hero-role-font-size: 0.9rem;
+    --hero-meta-font-size: 9px;
+    --hero-meta-tracking: 0.12em;
+    --hero-social-gap: 0.625rem;
+    --hero-social-padding: 0.625rem;
+    --hero-social-icon-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --hero-avatar-frame-size: 76px;
+    --hero-avatar-image-size: 98px;
+    --hero-badge-font-size: 12px;
+    --hero-badge-tracking: 0.24em;
+    --hero-name-font-size: 2.15rem;
+    --hero-role-font-size: 1.12rem;
+    --hero-meta-font-size: 12px;
+    --hero-meta-tracking: 0.18em;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --hero-avatar-frame-size: 82px;
+    --hero-avatar-image-size: 106px;
+    --hero-badge-font-size: 13px;
+    --hero-badge-tracking: 0.28em;
+    --hero-name-font-size: 2.75rem;
+    --hero-role-font-size: 1.28rem;
+    --hero-meta-font-size: 13px;
+    --hero-meta-tracking: 0.2em;
+  }
+}
+
+.hero-shell {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-inline: 1rem;
+}
+
+.hero-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--hero-stack-gap);
+  padding: var(--hero-panel-py) var(--hero-panel-px);
+  text-align: center;
+  font-family: var(--font-recoleta);
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-block {
+  background: var(--hero-glass-bg);
+  box-shadow: var(--hero-glass-shadow);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.hero-avatar-card {
+  border-radius: 30px;
+  padding: var(--hero-avatar-card-py) var(--hero-avatar-card-px);
+}
+
+.hero-avatar-ring {
+  border-radius: 9999px;
+  padding: 3px;
+  box-shadow: var(--hero-ring-shadow);
+  background: var(--hero-ring-gradient);
+}
+
+.hero-avatar-frame {
+  position: relative;
+  width: var(--hero-avatar-frame-size);
+  height: var(--hero-avatar-frame-size);
+  overflow: hidden;
+  border: 2px solid #000;
+  border-radius: 9999px;
+  background: #000;
+}
+
+.hero-avatar-image {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  width: var(--hero-avatar-image-size);
+  height: var(--hero-avatar-image-size);
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: top;
+  filter: brightness(1.06) contrast(1.08) saturate(1.04);
+}
+
+.hero-badge {
+  margin-bottom: 0.125rem;
+  border-radius: 18px;
+  padding: 0.25rem 0.875rem;
+  font-family: var(--font-mono);
+  font-size: var(--hero-badge-font-size);
+  letter-spacing: var(--hero-badge-tracking);
+  text-transform: uppercase;
+  color: var(--hero-badge-color);
+  text-shadow: var(--hero-badge-shadow);
+}
+
+.hero-name {
+  margin-bottom: 0.25rem;
+  border-radius: 28px;
+  padding: 0.5rem 1.125rem;
+  font-size: var(--hero-name-font-size);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--hero-name-color);
+  text-shadow: var(--hero-name-shadow);
+}
+
+.hero-role {
+  margin-bottom: 0.5rem;
+  border-radius: 26px;
+  padding: 0.375rem 1.125rem;
+  font-size: var(--hero-role-font-size);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--hero-role-color);
+  text-shadow: var(--hero-role-shadow);
+}
+
+.hero-company {
+  color: var(--hero-link-color);
+  text-shadow: var(--hero-link-shadow);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.hero-meta {
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 22px;
+  padding: 0.375rem 0.875rem;
+  font-size: var(--hero-meta-font-size);
+  font-weight: 600;
+  letter-spacing: var(--hero-meta-tracking);
+  text-transform: uppercase;
+  color: var(--hero-meta-color);
+  text-shadow: var(--hero-meta-shadow);
+}
+
+.hero-meta-icon {
+  flex-shrink: 0;
+  color: #67e8f9;
+}
+
+.hero-social-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hero-social-gap);
+}
+
+.hero-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--hero-social-padding);
+  border-radius: 9999px;
+  background: rgb(238 242 255 / 0.1);
+  box-shadow: var(--hero-social-shadow);
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-social-link:hover {
+  background: rgb(238 242 255 / 0.2);
+  transform: scale(1.1);
+}
+
+.hero-social-icon {
+  width: var(--hero-social-icon-size);
+  height: var(--hero-social-icon-size);
+  color: #a5b4fc;
+  transition: color 0.3s ease;
+}
+
+.hero-social-link:hover .hero-social-icon {
+  color: #ffffff;
+}
+
+@media (max-width: 639px) {
+  .hero-shell {
+    padding-inline: 0.5rem;
+  }
+
+  .hero-panel {
+    width: min(100%, 20rem);
+  }
+
+  .hero-name,
+  .hero-role,
+  .hero-meta {
+    max-width: 17rem;
+  }
+
+  .hero-meta {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

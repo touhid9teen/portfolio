@@ -3,12 +3,12 @@ import ExternalLinkIcon from "./ExternalLinkIcon";
 
 export default function BlogPosts() {
   return (
-    <main>
-      <h1 className="mb-8 font-recoleta text-3xl text-fg sm:text-4xl">
+    <main className="max-sm:px-1">
+      <h1 className="mb-8 font-recoleta text-3xl text-fg sm:text-4xl max-sm:mb-6 max-sm:text-2xl">
         all posts
       </h1>
 
-      <ul className="space-y-2">
+      <ul className="space-y-2 max-sm:space-y-3">
         {posts.map((post) => (
           <li
             key={`${post.date}-${post.url}`}
@@ -20,7 +20,7 @@ export default function BlogPosts() {
 
             <a
               href={post.url}
-              className="inline-flex gap-1 text-accent transition-colors hover:text-cyan-300 hover:underline"
+              className="inline-flex gap-1 text-accent transition-colors hover:text-cyan-300 hover:underline max-sm:min-w-0 max-sm:leading-relaxed"
               target="_blank"
               rel="noopener noreferrer"
             >
