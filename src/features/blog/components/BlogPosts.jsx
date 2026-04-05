@@ -1,5 +1,5 @@
 import posts from "../data/posts";
-import ExternalLinkIcon from "./ExternalLinkIcon";
+import ExternalLinkIcon from "../../../shared/components/ExternalLinkIcon";
 
 export default function BlogPosts() {
   return (
