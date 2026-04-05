@@ -15,6 +15,12 @@ export default function HeroCard() {
     <header className="hero-shell">
       <div className="hero-panel">
         <div className="hero-avatar-card hero-block">
+          <div className="hero-avatar-orbits" aria-hidden="true">
+            <span className="hero-orbit hero-orbit--one" />
+            <span className="hero-orbit hero-orbit--two" />
+            <span className="hero-orbit hero-orbit--three" />
+          </div>
+
           <div className="hero-avatar-ring">
             <div className="hero-avatar-frame">
               <img

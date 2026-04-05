@@ -292,9 +292,9 @@ export default function AsciiGalaxy({ children }) {
       setLayout(getMobileLayout(window.innerWidth));
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -316,7 +316,7 @@ export default function AsciiGalaxy({ children }) {
       style={
         layout.isMobile
           ? { height: `${layout.height}px`, overflow: "hidden" }
-          : undefined
+          : { height: `${layout.height}px` }
       }
     >
       <pre
