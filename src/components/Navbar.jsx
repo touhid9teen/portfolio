@@ -1,6 +1,8 @@
 function getNavLinkClass(isActive) {
-  return `transition-colors ${
-    isActive ? "text-[#c4b5fd]" : "text-fg hover:text-[#93c5fd]"
+  return `text-[0.96rem] font-bold tracking-[0.08em] transition-colors duration-300 max-sm:text-[0.88rem] ${
+    isActive
+      ? "text-[#d8c8ff]"
+      : "text-[#dbeafe] hover:text-[#93c5fd]"
   }`;
 }
 
@@ -11,23 +13,17 @@ export default function Navbar({ pathname, onNavigate }) {
   };
 
   return (
-    <nav className="flex items-center justify-between mb-16 text-sm max-sm:mb-10 max-sm:flex-col max-sm:gap-3 max-sm:text-xs">
+    <nav className="flex items-center justify-between mb-16 pt-3 max-sm:mb-10 max-sm:flex-col max-sm:gap-3 max-sm:pt-2">
       <a
         href="/"
-        className="font-mono transition-colors hover:text-[#93c5fd]"
+        className="font-mono text-[1.05rem] font-bold tracking-[0.03em] transition-colors hover:text-[#93c5fd] max-sm:text-[0.96rem]"
         onClick={(event) => navigateTo(event, "/")}
-        style={{
-          color: "#c4b5fd",
-          textShadow: `
-            0 0 10px rgba(139, 92, 246, 0.35),
-            0 0 20px rgba(79, 70, 229, 0.2)
-          `,
-        }}
+        style={{ color: "#c4b5fd" }}
       >
         touhid
       </a>
 
-      <div className="flex items-center gap-1 text-fg-muted font-mono max-sm:gap-1.5">
+      <div className="flex items-center gap-1.5 font-mono max-sm:gap-1.5">
         <a
           href="/"
           className={getNavLinkClass(pathname === "/")}

@@ -29,7 +29,7 @@
   --hero-badge-font-size: 11px;
   --hero-badge-tracking: 0.22em;
   --hero-name-font-size: 1.75rem;
-  --hero-role-font-size: 1rem;
+  --hero-role-font-size: 1.08rem;
   --hero-meta-font-size: 11px;
   --hero-meta-tracking: 0.16em;
   --hero-social-gap: 0.875rem;
@@ -48,7 +48,7 @@
     --hero-badge-font-size: 9px;
     --hero-badge-tracking: 0.18em;
     --hero-name-font-size: 1.55rem;
-    --hero-role-font-size: 0.9rem;
+    --hero-role-font-size: 0.98rem;
     --hero-meta-font-size: 9px;
     --hero-meta-tracking: 0.12em;
     --hero-social-gap: 0.625rem;
@@ -65,7 +65,7 @@
     --hero-badge-font-size: 12px;
     --hero-badge-tracking: 0.24em;
     --hero-name-font-size: 2.15rem;
-    --hero-role-font-size: 1.12rem;
+    --hero-role-font-size: 1.2rem;
     --hero-meta-font-size: 12px;
     --hero-meta-tracking: 0.18em;
   }
@@ -79,7 +79,7 @@
     --hero-badge-font-size: 13px;
     --hero-badge-tracking: 0.28em;
     --hero-name-font-size: 2.75rem;
-    --hero-role-font-size: 1.28rem;
+    --hero-role-font-size: 1.42rem;
     --hero-meta-font-size: 13px;
     --hero-meta-tracking: 0.2em;
   }
