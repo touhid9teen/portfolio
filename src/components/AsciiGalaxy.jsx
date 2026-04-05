@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+import "./AsciiGalaxy.css";
 
 const w = " .·:+*#@";
 const d = 90;
@@ -7,7 +8,51 @@ const k = 1500;
 const u = 3;
 const A = 0.3;
 const S = -0.45;
-const b = ["#2563eb", "#4f46e5", "#7c3aed", "#8b5cf6", "#3b82f6", "#6366f1", "#c4b5fd", "#93c5fd"];
+const GALAXY_STAR_COLORS = [
+  "#2563eb",
+  "#4f46e5",
+  "#7c3aed",
+  "#8b5cf6",
+  "#3b82f6",
+  "#6366f1",
+  "#c4b5fd",
+  "#93c5fd",
+];
+
+function randomInRange(min, max) {
+  return min + Math.random() * (max - min);
+}
+
+function createBackdropStars(
+  count,
+  {
+    idPrefix = "star",
+    leftRange = [-2, 102],
+    topRange = [-4, 104],
+    sizeRange = [0.8, 2.4],
+    opacityRange = [0.4, 0.95],
+    durationRange = [2.6, 7.2],
+    delayRange = [-8, 0],
+    blurRange = [0, 0],
+    scaleRange = [1.18, 1.9],
+  } = {}
+) {
+  return Array.from({ length: count }, (_, index) => ({
+    id: `${idPrefix}-${index}`,
+    left: randomInRange(...leftRange),
+    top: randomInRange(...topRange),
+    size: randomInRange(...sizeRange),
+    opacity: randomInRange(...opacityRange),
+    duration: randomInRange(...durationRange),
+    delay: randomInRange(...delayRange),
+    blur: randomInRange(...blurRange),
+    scale: randomInRange(...scaleRange),
+    color:
+      GALAXY_STAR_COLORS[
+        Math.floor(Math.random() * GALAXY_STAR_COLORS.length)
+      ],
+  }));
+}
 
 const I = [];
 for (let s = 0; s < k; s++) {
@@ -23,7 +68,7 @@ for (let s = 0; s < k; s++) {
     brightness: Math.min(1, m),
     twinkleSpeed: 2 + Math.random() * 4,
     twinkleOffset: Math.random() * Math_PI_2,
-    colorIndex: Math.floor(Math.random() * b.length)
+    colorIndex: Math.floor(Math.random() * GALAXY_STAR_COLORS.length),
   });
 }
 const T = 250;
@@ -38,9 +83,42 @@ for (let s = 0; s < T; s++) {
     brightness: h,
     twinkleSpeed: 1 + Math.random() * 3,
     twinkleOffset: Math.random() * Math_PI_2,
-    colorIndex: Math.floor(Math.random() * b.length)
+    colorIndex: Math.floor(Math.random() * GALAXY_STAR_COLORS.length),
   });
 }
+
+const BACKDROP_MICRO_STARS = createBackdropStars(280, {
+  idPrefix: "micro-star",
+  sizeRange: [0.35, 1.05],
+  opacityRange: [0.18, 0.68],
+  durationRange: [2.2, 5.4],
+  scaleRange: [1.08, 1.45],
+});
+
+const BACKDROP_STARS = createBackdropStars(180, {
+  idPrefix: "star",
+  sizeRange: [0.9, 2.5],
+  opacityRange: [0.38, 0.92],
+  durationRange: [2.8, 7.5],
+  scaleRange: [1.18, 1.95],
+});
+
+const BACKDROP_BRIGHT_STARS = createBackdropStars(56, {
+  idPrefix: "bright-star",
+  sizeRange: [2.3, 4.8],
+  opacityRange: [0.5, 0.96],
+  durationRange: [4.6, 9.6],
+  scaleRange: [1.25, 2.25],
+});
+
+const BACKDROP_GLOWS = createBackdropStars(28, {
+  idPrefix: "glow-star",
+  sizeRange: [5.5, 11.5],
+  opacityRange: [0.14, 0.34],
+  durationRange: [5.6, 11.8],
+  blurRange: [10, 18],
+  scaleRange: [1.55, 2.8],
+});
 
 function P(s) {
   const o = [];
@@ -95,13 +173,14 @@ function P(s) {
       if (e === " ") {
         n += " ";
       } else {
-        const a = l.colorIndex === -1 ? "#e0e7ff" : b[l.colorIndex];
+        const a =
+          l.colorIndex === -1 ? "#e0e7ff" : GALAXY_STAR_COLORS[l.colorIndex];
         n += `<span style="color:${a}">${e}</span>`;
       }
     }
     m.push(n);
   }
-  return m.join('\n');
+  return m.join("\n");
 }
 
 function getMobileLayout(width) {
@@ -118,6 +197,90 @@ function getMobileLayout(width) {
   }
 
   return { isMobile: false, scale: 1, height: 607 };
+}
+
+export function GalaxyBackdrop() {
+  return (
+    <div className="galaxy-backdrop" aria-hidden="true">
+      <div className="galaxy-backdrop__wash" />
+
+      {BACKDROP_GLOWS.map((star) => (
+        <span
+          key={star.id}
+          className="galaxy-backdrop__star galaxy-backdrop__star--glow"
+          style={{
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            backgroundColor: star.color,
+            filter: `blur(${star.blur}px)`,
+            "--galaxy-star-opacity": star.opacity,
+            "--galaxy-star-duration": `${star.duration}s`,
+            "--galaxy-star-delay": `${star.delay}s`,
+            "--galaxy-star-scale": star.scale,
+          }}
+        />
+      ))}
+
+      {BACKDROP_MICRO_STARS.map((star) => (
+        <span
+          key={star.id}
+          className="galaxy-backdrop__star galaxy-backdrop__star--micro"
+          style={{
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            backgroundColor: star.color,
+            boxShadow: `0 0 ${star.size * 3.5}px ${star.color}`,
+            "--galaxy-star-opacity": star.opacity,
+            "--galaxy-star-duration": `${star.duration}s`,
+            "--galaxy-star-delay": `${star.delay}s`,
+            "--galaxy-star-scale": star.scale,
+          }}
+        />
+      ))}
+
+      {BACKDROP_STARS.map((star) => (
+        <span
+          key={star.id}
+          className="galaxy-backdrop__star"
+          style={{
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            backgroundColor: star.color,
+            boxShadow: `0 0 ${star.size * 5}px ${star.color}`,
+            "--galaxy-star-opacity": star.opacity,
+            "--galaxy-star-duration": `${star.duration}s`,
+            "--galaxy-star-delay": `${star.delay}s`,
+            "--galaxy-star-scale": star.scale,
+          }}
+        />
+      ))}
+
+      {BACKDROP_BRIGHT_STARS.map((star) => (
+        <span
+          key={star.id}
+          className="galaxy-backdrop__star galaxy-backdrop__star--bright"
+          style={{
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            backgroundColor: star.color,
+            boxShadow: `0 0 ${star.size * 7}px ${star.color}`,
+            "--galaxy-star-opacity": star.opacity,
+            "--galaxy-star-duration": `${star.duration}s`,
+            "--galaxy-star-delay": `${star.delay}s`,
+            "--galaxy-star-scale": star.scale,
+          }}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default function AsciiGalaxy({ children }) {
@@ -150,7 +313,11 @@ export default function AsciiGalaxy({ children }) {
   return (
     <div
       className="relative flex justify-center items-center mb-6 h-[607px] w-full"
-      style={layout.isMobile ? { height: `${layout.height}px`, overflow: 'hidden' } : undefined}
+      style={
+        layout.isMobile
+          ? { height: `${layout.height}px`, overflow: "hidden" }
+          : undefined
+      }
     >
       <pre
         ref={containerRef}
@@ -159,16 +326,20 @@ export default function AsciiGalaxy({ children }) {
           layout.isMobile
             ? {
                 fontFamily: '"Monaspace Neon", monospace',
-                left: '50%',
-                top: '50%',
+                left: "50%",
+                top: "50%",
                 transform: `translate(-50%, -50%) scale(${layout.scale})`,
-                transformOrigin: 'center',
+                transformOrigin: "center",
               }
             : { fontFamily: '"Monaspace Neon", monospace' }
         }
       ></pre>
       {children && (
-        <div className={`relative z-10 w-full flex justify-center${layout.isMobile ? " px-2" : ""}`}>
+        <div
+          className={`relative z-10 w-full flex justify-center${
+            layout.isMobile ? " px-2" : ""
+          }`}
+        >
           {children}
         </div>
       )}

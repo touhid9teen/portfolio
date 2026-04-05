@@ -1,0 +1,86 @@
+.galaxy-backdrop {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.galaxy-backdrop__wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 16%, rgb(59 130 246 / 0.12), transparent 34%),
+    radial-gradient(circle at 78% 12%, rgb(124 58 237 / 0.12), transparent 28%),
+    radial-gradient(circle at 50% 72%, rgb(99 102 241 / 0.08), transparent 42%);
+}
+
+.galaxy-backdrop__star {
+  position: absolute;
+  display: block;
+  border-radius: 9999px;
+  opacity: var(--galaxy-star-opacity);
+  animation: galaxy-star-pulse var(--galaxy-star-duration) ease-in-out infinite;
+  animation-delay: var(--galaxy-star-delay);
+  will-change: opacity, transform;
+}
+
+.galaxy-backdrop__star--micro {
+  mix-blend-mode: screen;
+}
+
+.galaxy-backdrop__star--bright {
+  mix-blend-mode: screen;
+}
+
+.galaxy-backdrop__star--bright::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 46%,
+      rgb(255 255 255 / 0.7) 50%,
+      transparent 54%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 46%,
+      rgb(255 255 255 / 0.7) 50%,
+      transparent 54%
+    );
+  opacity: 0.4;
+  animation: galaxy-star-cross var(--galaxy-star-duration) ease-in-out infinite;
+  animation-delay: var(--galaxy-star-delay);
+}
+
+.galaxy-backdrop__star--glow {
+  mix-blend-mode: screen;
+}
+
+@keyframes galaxy-star-pulse {
+  0%,
+  100% {
+    opacity: calc(var(--galaxy-star-opacity) * 0.45);
+    transform: scale(0.82);
+  }
+
+  50% {
+    opacity: var(--galaxy-star-opacity);
+    transform: scale(var(--galaxy-star-scale));
+  }
+}
+
+@keyframes galaxy-star-cross {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(0.72);
+  }
+
+  50% {
+    opacity: 0.52;
+    transform: scale(1.18);
+  }
+}

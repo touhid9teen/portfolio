@@ -1,6 +1,6 @@
 import { Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import profilePic from "../assets/profile.jpg";
+import profilePic from "../assets/profile.webp";
 import { heroContent, heroSocialLinks } from "../data/heroContent";
 import "./HeroCard.css";
 
@@ -23,7 +23,8 @@ export default function HeroCard() {
                 alt={heroContent.imageAlt}
                 width="460"
                 height="460"
-                decoding="async"
+                loading="eager"
+                decoding="sync"
                 fetchPriority="high"
               />
             </div>

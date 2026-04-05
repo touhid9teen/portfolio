@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-import AsciiGalaxy from "./components/AsciiGalaxy";
+import AsciiGalaxy, { GalaxyBackdrop } from "./components/AsciiGalaxy";
 import HeroCard from "./components/HeroCard";
 import BlogPosts from "./components/BlogPosts";
 
@@ -43,18 +43,22 @@ function App() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-12 max-sm:px-4 max-sm:py-6">
-      <Navbar pathname={pathname} onNavigate={handleNavigate} />
+    <div className="relative isolate min-h-screen">
+      <GalaxyBackdrop />
 
-      {pathname === "/blog" ? (
-        <BlogPosts />
-      ) : (
-        <main>
-          <AsciiGalaxy>
-            <HeroCard />
-          </AsciiGalaxy>
-        </main>
-      )}
+      <div className="relative z-10 mx-auto max-w-3xl px-6 py-12 max-sm:px-4 max-sm:py-6">
+        <Navbar pathname={pathname} onNavigate={handleNavigate} />
+
+        {pathname === "/blog" ? (
+          <BlogPosts />
+        ) : (
+          <main>
+            <AsciiGalaxy>
+              <HeroCard />
+            </AsciiGalaxy>
+          </main>
+        )}
+      </div>
     </div>
   );
 }
