@@ -1,15 +1,16 @@
 :root {
   --hero-glass-bg: rgb(255 255 255 / 0.03);
-  --hero-glass-shadow:
-    0 24px 80px rgba(2, 6, 23, 0.45),
+  --hero-glass-shadow: 0 24px 80px rgba(2, 6, 23, 0.45),
     0 0 28px rgba(79, 70, 229, 0.16);
   --hero-ring-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
   --hero-ring-shadow: 0 0 20px 4px rgba(99, 102, 241, 0.5);
   --hero-social-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
   --hero-badge-color: #c4b5fd;
-  --hero-badge-shadow: 0 0 10px rgba(139, 92, 246, 0.35), 0 0 22px rgba(99, 102, 241, 0.18);
+  --hero-badge-shadow: 0 0 10px rgba(139, 92, 246, 0.35),
+    0 0 22px rgba(99, 102, 241, 0.18);
   --hero-name-color: #f8fbff;
-  --hero-name-shadow: 0 0 12px rgba(147, 197, 253, 0.16), 0 0 28px rgba(99, 102, 241, 0.22);
+  --hero-name-shadow: 0 0 12px rgba(147, 197, 253, 0.16),
+    0 0 28px rgba(99, 102, 241, 0.22);
   --hero-role-color: #dbeafe;
   --hero-role-shadow: 0 0 12px rgba(96, 165, 250, 0.14);
   --hero-link-color: #67e8f9;
@@ -22,7 +23,9 @@
   --hero-avatar-card-px: 0.875rem;
   --hero-avatar-card-py: 0.5rem;
   --hero-avatar-frame-size: 68px;
-  --hero-avatar-image-size: 90px;
+  --hero-avatar-image-scale: 1.14;
+  --hero-avatar-image-position-y: 22%;
+  --hero-avatar-image-grayscale: 1;
   --hero-badge-font-size: 11px;
   --hero-badge-tracking: 0.22em;
   --hero-name-font-size: 1.75rem;
@@ -40,7 +43,8 @@
     --hero-panel-py: 1.25rem;
     --hero-avatar-card-py: 0.375rem;
     --hero-avatar-frame-size: 64px;
-    --hero-avatar-image-size: 84px;
+    --hero-avatar-image-scale: 1.08;
+    --hero-avatar-image-position-y: 20%;
     --hero-badge-font-size: 9px;
     --hero-badge-tracking: 0.18em;
     --hero-name-font-size: 1.55rem;
@@ -56,7 +60,8 @@
 @media (min-width: 768px) {
   :root {
     --hero-avatar-frame-size: 76px;
-    --hero-avatar-image-size: 98px;
+    --hero-avatar-image-scale: 1.16;
+    --hero-avatar-image-position-y: 24%;
     --hero-badge-font-size: 12px;
     --hero-badge-tracking: 0.24em;
     --hero-name-font-size: 2.15rem;
@@ -69,7 +74,8 @@
 @media (min-width: 1024px) {
   :root {
     --hero-avatar-frame-size: 82px;
-    --hero-avatar-image-size: 106px;
+    --hero-avatar-image-scale: 1.18;
+    --hero-avatar-image-position-y: 25%;
     --hero-badge-font-size: 13px;
     --hero-badge-tracking: 0.28em;
     --hero-name-font-size: 2.75rem;
@@ -134,16 +140,13 @@
 }
 
 .hero-avatar-image {
-  position: absolute;
-  top: 54%;
-  left: 50%;
-  width: var(--hero-avatar-image-size);
-  height: var(--hero-avatar-image-size);
-  max-width: none;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  transform: scale(var(--hero-avatar-image-scale));
   object-fit: cover;
-  object-position: top;
-  filter: brightness(1.06) contrast(1.08) saturate(1.04);
+  object-position: center var(--hero-avatar-image-position-y);
+  filter: grayscale(var(--hero-avatar-image-grayscale)) brightness(1.06)
+    contrast(1.08);
 }
 
 .hero-badge {
