@@ -23,7 +23,11 @@ function App() {
         </div>
         {scene.showHomeStage ? (
           <main className="scene-stage scene-stage--home">
-            <AsciiGalaxy>
+            <AsciiGalaxy
+              onNavigate={scene.handleNavigate}
+              navStage={scene.navStage}
+              navStageClass={getNavStageClass(scene.navStage)}
+            >
               {scene.heroStage !== "hidden" ? (
                 <div className={`scene-panel ${getHeroStageClass(scene.heroStage)}`}>
                   <HeroCard />

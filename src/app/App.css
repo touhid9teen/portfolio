@@ -9,7 +9,7 @@
 }
 
 .scene-nav--enter {
-  animation: scene-nav-enter 980ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: scene-nav-enter 1280ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .scene-nav--exit {
