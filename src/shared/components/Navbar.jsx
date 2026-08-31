@@ -42,7 +42,7 @@ export default function Navbar({ pathname, onNavigate }) {
           className="px-3 py-1.5 rounded-full text-[0.8rem] font-semibold tracking-wide text-[#6b7280]"
           onClick={(e) => navigateTo(e, "/blog")}
         >
-          blog
+          notes
           <svg
             className="inline-block ml-1 -mt-0.5"
             width="10"
