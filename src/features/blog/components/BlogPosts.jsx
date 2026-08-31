@@ -25,7 +25,7 @@ export default function BlogPosts() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="font-recoleta text-[0.95rem] leading-snug sm:text-[1.05rem]">
+                <span className="font-recoleta font-semibold text-[0.95rem] leading-snug sm:text-[1.05rem]">
                   {post.title}
                 </span>
                 <ExternalLinkIcon className="mt-1.5 h-3.5 w-3.5 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#111]" />
