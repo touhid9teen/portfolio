@@ -15,7 +15,7 @@ export default function BlogPosts() {
             className="border-t border-[#e5e7eb] py-5 first:border-t-0"
           >
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
-              <span className="shrink-0 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-[#9ca3af] sm:text-[0.75rem]">
+              <span className="shrink-0 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#9ca3af] sm:text-[0.7rem]">
                 {post.date}
               </span>
 
@@ -25,7 +25,7 @@ export default function BlogPosts() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="font-recoleta font-semibold text-[0.95rem] leading-snug sm:text-[1.05rem]">
+                <span className="font-recoleta font-semibold text-[0.85rem] leading-snug sm:text-[0.9rem]">
                   {post.title}
                 </span>
                 <ExternalLinkIcon className="mt-1.5 h-3.5 w-3.5 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#111]" />
