@@ -267,6 +267,27 @@
   animation-delay: 0.7s;
 }
 
+.hero-blog-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #6b7280;
+  border-radius: 9999px;
+  background: transparent;
+  color: #374151;
+  font-family: var(--font-recoleta);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-blog-btn:hover {
+  background: #a855f7;
+  border-color: #a855f7;
+  color: #fff;
+}
+
 @keyframes hero-block-reveal {
   0% {
     opacity: 0;

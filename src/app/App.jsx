@@ -35,7 +35,7 @@ function App() {
           <main className="scene-stage scene-stage--home">
             {scene.heroStage !== "hidden" ? (
               <div className={`scene-panel ${getHeroStageClass(scene.heroStage)}`}>
-                <HeroCard />
+                <HeroCard onNavigate={scene.handleNavigate} />
               </div>
             ) : null}
           </main>
