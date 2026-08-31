@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="relative isolate min-h-screen flex flex-col">
-      <div className="flex-1 flex flex-col justify-center items-center pt-32">
+      <div className="flex-1 flex flex-col justify-center items-center pt-44">
       <SplashCursor
         DENSITY_DISSIPATION={3.5}
         VELOCITY_DISSIPATION={2}
