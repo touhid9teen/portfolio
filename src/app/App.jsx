@@ -1,4 +1,6 @@
 import "./App.css";
+import { useState, useCallback } from "react";
+import Loader from "../shared/components/Loader";
 import SplashCursor from "../shared/components/SplashCursor";
 import BlogPosts from "../features/blog/components/BlogPosts";
 import HeroCard from "../features/home/components/HeroCard";
@@ -8,6 +10,12 @@ import { getBlogStageClass, getHeroStageClass, getNavStageClass } from "./utils/
 
 function App() {
   const scene = useSceneController();
+  const [loading, setLoading] = useState(true);
+  const handleLoadComplete = useCallback(() => setLoading(false), []);
+
+  if (loading) {
+    return <Loader onComplete={handleLoadComplete} />;
+  }
 
   return (
     <div className="relative isolate min-h-screen flex flex-col">
