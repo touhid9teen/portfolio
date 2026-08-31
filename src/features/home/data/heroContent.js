@@ -1,11 +1,11 @@
 export const heroContent = {
   greeting: "hi, i'm",
-  name: "Touhidul Islam",
+  name: "touhid",
   rolePrefix: "software engineer at",
   companyName: "upay",
   companyUrl: "https://www.upaybd.com/",
   location: "dhaka, bangladesh",
-  imageAlt: "touhidul islam",
+  imageAlt: "touhid",
 };
 
 export const heroSocialLinks = [
