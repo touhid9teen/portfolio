@@ -4,7 +4,7 @@ import ExternalLinkIcon from "../../../shared/components/ExternalLinkIcon";
 export default function BlogPosts() {
   return (
     <main className="max-w-2xl mx-auto max-sm:px-1">
-      <h1 className="mb-10 font-recoleta text-2xl font-bold text-[#111] sm:text-3xl max-sm:mb-8 max-sm:text-xl">
+      <h1 className="mb-10 font-recoleta text-lg font-bold text-[#111] sm:text-xl max-sm:mb-8 max-sm:text-base">
         all posts
       </h1>
 
