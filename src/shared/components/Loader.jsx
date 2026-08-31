@@ -1,18 +1,28 @@
 import { useState, useEffect } from "react";
 
 export default function Loader({ onComplete }) {
-  const [phase, setPhase] = useState("writing"); // writing → pause → fading
+  const [visibleLetters, setVisibleLetters] = useState(0);
+  const [phase, setPhase] = useState("writing");
+
+  const text = "welcome";
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase("pause"), 1200);
-    const t2 = setTimeout(() => setPhase("fading"), 1800);
-    const t3 = setTimeout(() => onComplete?.(), 2400);
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-    };
-  }, [onComplete]);
+    if (visibleLetters < text.length) {
+      const timer = setTimeout(() => {
+        setVisibleLetters((prev) => prev + 1);
+      }, 150);
+      return () => clearTimeout(timer);
+    } else {
+      const t1 = setTimeout(() => setPhase("pause"), 600);
+      const t2 = setTimeout(() => setPhase("fading"), 1200);
+      const t3 = setTimeout(() => onComplete?.(), 1800);
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        clearTimeout(t3);
+      };
+    }
+  }, [visibleLetters, onComplete]);
 
   return (
     <div
@@ -21,29 +31,29 @@ export default function Loader({ onComplete }) {
       }`}
     >
       <div className="flex flex-col items-center gap-3">
-        {/* Signature text */}
-        <h1
-          className={`font-recoleta text-4xl sm:text-5xl font-bold text-[#111] tracking-tight transition-all duration-500 ${
-            phase === "writing"
-              ? "opacity-100 translate-y-0"
-              : "opacity-100 translate-y-0"
-          }`}
-        >
-          touhid
+        {/* Letter by letter text */}
+        <h1 className="font-recoleta text-4xl sm:text-5xl font-bold text-[#111] tracking-tight">
+          {text.split("").map((char, i) => (
+            <span
+              key={i}
+              className={`inline-block transition-all duration-300 ${
+                i < visibleLetters
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-2"
+              }`}
+              style={{ transitionDelay: `${i * 50}ms` }}
+            >
+              {char}
+            </span>
+          ))}
         </h1>
 
-        {/* Underline animation */}
-        <div className="relative w-full h-[2px] bg-[#e5e7eb] overflow-hidden rounded-full">
-          <div
-            className={`absolute inset-y-0 left-0 bg-[#111] rounded-full transition-all duration-1000 ease-out ${
-              phase === "writing" ? "w-full" : "w-full"
-            }`}
-            style={{
-              width: phase === "writing" ? "0%" : "100%",
-              transition: "width 1s ease-out",
-            }}
-          />
-        </div>
+        {/* Cursor blink */}
+        <div
+          className={`w-[2px] h-5 bg-[#111] rounded-full transition-opacity duration-300 ${
+            visibleLetters >= text.length ? "opacity-0" : "animate-pulse"
+          }`}
+        />
       </div>
     </div>
   );
