@@ -136,7 +136,7 @@
   width: var(--hero-avatar-frame-size);
   height: var(--hero-avatar-frame-size);
   overflow: hidden;
-  border: 3px solid #000;
+  border: 3px solid #d1d5db;
   border-radius: 9999px;
   background: transparent;
 }
