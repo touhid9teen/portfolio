@@ -1,5 +1,4 @@
 import "./App.css";
-import AsciiGalaxy from "../features/home/components/AsciiGalaxy";
 import BlogPosts from "../features/blog/components/BlogPosts";
 import HeroCard from "../features/home/components/HeroCard";
 import Navbar from "../shared/components/Navbar";
@@ -21,17 +20,11 @@ function App() {
         </div>
         {scene.showHomeStage ? (
           <main className="scene-stage scene-stage--home">
-            <AsciiGalaxy
-              onNavigate={scene.handleNavigate}
-              navStage={scene.navStage}
-              navStageClass={getNavStageClass(scene.navStage)}
-            >
-              {scene.heroStage !== "hidden" ? (
-                <div className={`scene-panel ${getHeroStageClass(scene.heroStage)}`}>
-                  <HeroCard />
-                </div>
-              ) : null}
-            </AsciiGalaxy>
+            {scene.heroStage !== "hidden" ? (
+              <div className={`scene-panel ${getHeroStageClass(scene.heroStage)}`}>
+                <HeroCard />
+              </div>
+            ) : null}
           </main>
         ) : null}
         {scene.showBlogStage ? (

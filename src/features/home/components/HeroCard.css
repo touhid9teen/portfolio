@@ -1,22 +1,17 @@
 :root {
-  --hero-glass-bg: rgb(255 255 255 / 0.03);
-  --hero-glass-shadow: 0 24px 80px rgba(2, 6, 23, 0.45),
-    0 0 28px rgba(79, 70, 229, 0.16);
-  --hero-ring-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
-  --hero-ring-shadow: 0 0 20px 4px rgba(99, 102, 241, 0.5);
-  --hero-social-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
-  --hero-badge-color: #c4b5fd;
-  --hero-badge-shadow: 0 0 10px rgba(139, 92, 246, 0.35),
-    0 0 22px rgba(99, 102, 241, 0.18);
-  --hero-name-color: #f8fbff;
-  --hero-name-shadow: 0 0 12px rgba(147, 197, 253, 0.16),
-    0 0 28px rgba(99, 102, 241, 0.22);
-  --hero-role-color: #dbeafe;
-  --hero-role-shadow: 0 0 12px rgba(96, 165, 250, 0.14);
-  --hero-link-color: #67e8f9;
-  --hero-link-shadow: 0 0 12px rgba(103, 232, 249, 0.45);
-  --hero-meta-color: #a5b4fc;
-  --hero-meta-shadow: 0 0 10px rgba(99, 102, 241, 0.22);
+  --hero-glass-bg: rgb(0 0 0 / 0.03);
+  --hero-glass-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+  --hero-social-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --hero-badge-color: #6b7280;
+  --hero-badge-shadow: none;
+  --hero-name-color: #111827;
+  --hero-name-shadow: none;
+  --hero-role-color: #374151;
+  --hero-role-shadow: none;
+  --hero-link-color: #2563eb;
+  --hero-link-shadow: none;
+  --hero-meta-color: #6b7280;
+  --hero-meta-shadow: none;
   --hero-stack-gap: 0.5rem;
   --hero-panel-px: 1.5rem;
   --hero-panel-py: 1.75rem;
@@ -161,9 +156,9 @@
   width: var(--hero-avatar-frame-size);
   height: var(--hero-avatar-frame-size);
   overflow: hidden;
-  border: 2px solid #000;
+  border: 2px solid #e5e7eb;
   border-radius: 9999px;
-  background: #000;
+  background: #f3f4f6;
 }
 
 .hero-avatar-image {
@@ -294,7 +289,7 @@
 
 .hero-meta-icon {
   flex-shrink: 0;
-  color: #67e8f9;
+  color: #6b7280;
 }
 
 .hero-social-list {
@@ -318,29 +313,26 @@
   justify-content: center;
   padding: var(--hero-social-padding);
   border-radius: 9999px;
-  background: rgb(238 242 255 / 0.1);
+  background: rgb(0 0 0 / 0.05);
   box-shadow: var(--hero-social-shadow);
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 .hero-social-link:hover {
-  background: rgb(238 242 255 / 0.2);
+  background: rgb(0 0 0 / 0.1);
   transform: scale(1.1);
-  box-shadow:
-    0 0 18px rgba(147, 197, 253, 0.35),
-    0 0 30px rgba(99, 102, 241, 0.18);
 }
 
 .hero-social-icon {
   width: var(--hero-social-icon-size);
   height: var(--hero-social-icon-size);
-  color: #a5b4fc;
+  color: #374151;
   transition: color 0.3s ease;
 }
 
 .hero-social-link:hover .hero-social-icon {
-  color: #ffffff;
+  color: #111827;
 }
 
 .hero-social-list li:nth-child(2) {
