@@ -128,22 +128,7 @@
 }
 
 .hero-avatar-ring::before {
-  content: "";
-  position: absolute;
-  inset: -18%;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 180deg,
-    transparent 0deg,
-    rgba(147, 197, 253, 0.15) 72deg,
-    rgba(139, 92, 246, 0.5) 135deg,
-    rgba(34, 211, 238, 0.18) 220deg,
-    transparent 300deg
-  );
-  opacity: 0.85;
-  filter: blur(10px);
-  animation: hero-ring-sweep 10s linear infinite;
-  z-index: -1;
+  display: none;
 }
 
 .hero-avatar-frame {
@@ -166,51 +151,7 @@
   animation: hero-avatar-drift 10.5s ease-in-out infinite;
 }
 
-.hero-avatar-orbits {
-  position: absolute;
-  inset: -0.65rem;
-  pointer-events: none;
-}
 
-.hero-orbit {
-  position: absolute;
-  border-radius: 9999px;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-.hero-orbit--one {
-  top: 0.15rem;
-  left: 0.5rem;
-  width: 0.45rem;
-  height: 0.45rem;
-  background: #93c5fd;
-  box-shadow: 0 0 14px rgba(147, 197, 253, 0.7);
-  animation-name: hero-orbit-one;
-  animation-duration: 6.8s;
-}
-
-.hero-orbit--two {
-  right: 0.15rem;
-  top: 42%;
-  width: 0.35rem;
-  height: 0.35rem;
-  background: #c4b5fd;
-  box-shadow: 0 0 12px rgba(196, 181, 253, 0.7);
-  animation-name: hero-orbit-two;
-  animation-duration: 8.2s;
-}
-
-.hero-orbit--three {
-  bottom: 0.2rem;
-  left: 26%;
-  width: 0.28rem;
-  height: 0.28rem;
-  background: #67e8f9;
-  box-shadow: 0 0 10px rgba(103, 232, 249, 0.75);
-  animation-name: hero-orbit-three;
-  animation-duration: 6.1s;
-}
 
 .hero-badge {
   margin-bottom: 0;
@@ -304,15 +245,14 @@
   justify-content: center;
   padding: var(--hero-social-padding);
   border-radius: 9999px;
-  background: rgb(168 85 247 / 0.06);
-  box-shadow: var(--hero-social-shadow);
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
-    box-shadow 0.3s ease;
+  background: rgb(0 0 0 / 0.04);
+  box-shadow: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .hero-social-link:hover {
-  background: rgb(168 85 247 / 0.12);
-  transform: scale(1.1);
+  background: rgb(0 0 0 / 0.08);
+  transform: scale(1.05);
 }
 
 .hero-social-icon {
@@ -323,7 +263,7 @@
 }
 
 .hero-social-link:hover .hero-social-icon {
-  color: #a855f7;
+  color: #374151;
 }
 
 .hero-social-list li:nth-child(2) {
@@ -359,38 +299,6 @@
   }
 }
 
-@keyframes hero-ring-pulse {
-  0%,
-  100% {
-    box-shadow:
-      0 0 18px rgba(99, 102, 241, 0.42),
-      0 0 36px rgba(79, 70, 229, 0.16);
-  }
-
-  50% {
-    box-shadow:
-      0 0 24px rgba(99, 102, 241, 0.62),
-      0 0 46px rgba(34, 211, 238, 0.14);
-  }
-}
-
-@keyframes hero-ring-sweep {
-  0% {
-    transform: rotate(0deg) scale(0.94);
-    opacity: 0.5;
-  }
-
-  50% {
-    transform: rotate(180deg) scale(1.04);
-    opacity: 0.9;
-  }
-
-  100% {
-    transform: rotate(360deg) scale(0.94);
-    opacity: 0.5;
-  }
-}
-
 @keyframes hero-avatar-drift {
   0%,
   100% {
@@ -400,45 +308,6 @@
   50% {
     transform: scale(calc(var(--hero-avatar-image-scale) + 0.03))
       translate3d(0, -1.5%, 0);
-  }
-}
-
-@keyframes hero-orbit-one {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(0.9);
-    opacity: 0.35;
-  }
-
-  50% {
-    transform: translate3d(0.8rem, -0.6rem, 0) scale(1.18);
-    opacity: 1;
-  }
-}
-
-@keyframes hero-orbit-two {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(0.82);
-    opacity: 0.3;
-  }
-
-  50% {
-    transform: translate3d(0.55rem, 0.85rem, 0) scale(1.25);
-    opacity: 0.95;
-  }
-}
-
-@keyframes hero-orbit-three {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(0.8);
-    opacity: 0.28;
-  }
-
-  50% {
-    transform: translate3d(-0.9rem, 0.45rem, 0) scale(1.2);
-    opacity: 0.9;
   }
 }
 
