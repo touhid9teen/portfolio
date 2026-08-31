@@ -11,6 +11,7 @@ function App() {
 
   return (
     <div className="relative isolate min-h-screen flex flex-col">
+      <div className="flex-1 flex flex-col justify-center">
       <SplashCursor
         DENSITY_DISSIPATION={3.5}
         VELOCITY_DISSIPATION={2}
@@ -49,6 +50,7 @@ function App() {
             </div>
           </section>
         ) : null}
+      </div>
       </div>
       <footer className="relative z-10 text-center py-6 mt-auto">
         <p className="text-[0.7rem] font-mono text-[#9ca3af] tracking-wide">
