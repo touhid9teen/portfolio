@@ -124,8 +124,7 @@
 .hero-avatar-ring {
   position: relative;
   border-radius: 9999px;
-  padding: 3px;
-  background: linear-gradient(135deg, #a855f7, #c084fc);
+  padding: 0;
 }
 
 .hero-avatar-ring::before {
@@ -152,7 +151,7 @@
   width: var(--hero-avatar-frame-size);
   height: var(--hero-avatar-frame-size);
   overflow: hidden;
-  border: none;
+  border: 3px solid #000;
   border-radius: 9999px;
   background: transparent;
 }
