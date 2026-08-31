@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="relative isolate min-h-screen flex flex-col">
-      <div className="flex-1 flex flex-col justify-center items-center pt-56">
+      <div className={`flex-1 flex flex-col ${scene.pathname === '/blog' ? 'justify-start items-start pt-24' : 'justify-center items-center pt-56'}`}>
       <SplashCursor
         DENSITY_DISSIPATION={3.5}
         VELOCITY_DISSIPATION={2}
