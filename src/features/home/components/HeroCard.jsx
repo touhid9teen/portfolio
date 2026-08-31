@@ -1,5 +1,6 @@
 import { Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import profilePic from "../../../assets/profile.webp";
 import { heroContent, heroSocialLinks } from "../data/heroContent";
 import "./HeroCard.css";
 
@@ -13,6 +14,23 @@ export default function HeroCard() {
   return (
     <header className="hero-shell">
       <div className="hero-panel">
+        <div className="hero-avatar-card hero-block">
+          <div className="hero-avatar-ring">
+            <div className="hero-avatar-frame">
+              <img
+                className="hero-avatar-image"
+                src={profilePic}
+                alt={heroContent.imageAlt}
+                width="460"
+                height="460"
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="hero-copy">
           <p className="hero-badge hero-block">{heroContent.greeting}</p>
           <h1 className="hero-name hero-block">{heroContent.name}</h1>
