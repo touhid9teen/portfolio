@@ -157,10 +157,10 @@
   margin-bottom: 0.1rem;
   border-radius: 28px;
   padding: 0.5rem 1.125rem;
-  font-size: var(--hero-name-font-size);
-  font-weight: 900;
+  font-size: var(--hero-role-font-size);
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--hero-name-color);
   text-shadow: var(--hero-name-shadow);
   white-space: nowrap;
@@ -168,10 +168,8 @@
 }
 
 .hero-greeting {
-  font-size: var(--hero-role-font-size);
   font-weight: 600;
   color: var(--hero-role-color);
-  letter-spacing: 0;
 }
 
 .hero-role {
