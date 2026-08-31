@@ -97,7 +97,7 @@
   gap: var(--hero-stack-gap);
   padding: var(--hero-panel-py) var(--hero-panel-px);
   text-align: center;
-  font-family: var(--font-display);
+  font-family: var(--font-recoleta);
   animation: hero-panel-float 11.5s ease-in-out infinite;
 }
 
