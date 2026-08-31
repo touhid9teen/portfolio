@@ -10,7 +10,7 @@ function App() {
   const scene = useSceneController();
 
   return (
-    <div className="relative isolate min-h-screen flex flex-col justify-center">
+    <div className="relative isolate min-h-screen flex flex-col">
       <SplashCursor
         DENSITY_DISSIPATION={3.5}
         VELOCITY_DISSIPATION={2}
@@ -50,7 +50,7 @@ function App() {
           </section>
         ) : null}
       </div>
-      <footer className="relative z-10 text-center py-6">
+      <footer className="relative z-10 text-center py-6 mt-auto">
         <p className="text-[0.7rem] font-mono text-[#9ca3af] tracking-wide">
           © {new Date().getFullYear()} touhid. all rights reserved.
         </p>
