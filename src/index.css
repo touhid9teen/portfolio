@@ -9,10 +9,10 @@
 }
 
 @theme {
-  --color-bg: #000000;
-  --color-fg: #ffffff;
-  --color-fg-muted: #a1a1aa;
-  --color-accent: #93c5fd;
+  --color-bg: #ffffff;
+  --color-fg: #1a1a1a;
+  --color-fg-muted: #6b7280;
+  --color-accent: #3b82f6;
   
   --font-mono: "Monaspace Neon", monospace;
   --font-sans: "Inter", sans-serif;
