@@ -10,7 +10,7 @@ export default function Navbar({ pathname, onNavigate }) {
         <div className="flex items-center gap-2 font-mono">
           <a
             href="/"
-            className="px-3 py-1.5 rounded-full text-[0.8rem] font-semibold tracking-wide text-[#6b7280]"
+            className="px-3 py-1.5 rounded-full text-[0.8rem] font-semibold tracking-wide text-[#374151]"
             onClick={(e) => navigateTo(e, "/")}
           >
             <svg
@@ -39,7 +39,7 @@ export default function Navbar({ pathname, onNavigate }) {
       <div className="flex items-center gap-2 font-mono">
         <a
           href="/blog"
-          className="px-3 py-1.5 rounded-full text-[0.8rem] font-semibold tracking-wide text-[#6b7280]"
+          className="px-3 py-1.5 rounded-full text-[0.8rem] font-semibold tracking-wide text-[#374151]"
           onClick={(e) => navigateTo(e, "/blog")}
         >
           notes
