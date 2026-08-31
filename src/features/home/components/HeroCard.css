@@ -2,13 +2,13 @@
   --hero-glass-bg: rgb(0 0 0 / 0.03);
   --hero-glass-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
   --hero-social-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --hero-badge-color: #6b7280;
+  --hero-badge-color: #a855f7;
   --hero-badge-shadow: none;
   --hero-name-color: #111827;
   --hero-name-shadow: none;
   --hero-role-color: #374151;
   --hero-role-shadow: none;
-  --hero-link-color: #2563eb;
+  --hero-link-color: #a855f7;
   --hero-link-shadow: none;
   --hero-meta-color: #6b7280;
   --hero-meta-shadow: none;
@@ -97,7 +97,7 @@
   gap: var(--hero-stack-gap);
   padding: var(--hero-panel-py) var(--hero-panel-px);
   text-align: center;
-  font-family: var(--font-recoleta);
+  font-family: var(--font-display);
   animation: hero-panel-float 11.5s ease-in-out infinite;
 }
 
@@ -258,17 +258,14 @@
 
 .hero-company {
   color: var(--hero-link-color);
-  text-shadow: var(--hero-link-shadow);
   text-decoration: underline;
+  text-underline-offset: 3px;
   white-space: nowrap;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .hero-company:hover {
-  color: #cffafe;
-  text-shadow:
-    0 0 14px rgba(103, 232, 249, 0.7),
-    0 0 26px rgba(99, 102, 241, 0.28);
+  color: #9333ea;
 }
 
 .hero-meta {
@@ -289,7 +286,7 @@
 
 .hero-meta-icon {
   flex-shrink: 0;
-  color: #6b7280;
+  color: #a855f7;
 }
 
 .hero-social-list {
@@ -313,14 +310,14 @@
   justify-content: center;
   padding: var(--hero-social-padding);
   border-radius: 9999px;
-  background: rgb(0 0 0 / 0.05);
+  background: rgb(168 85 247 / 0.06);
   box-shadow: var(--hero-social-shadow);
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 .hero-social-link:hover {
-  background: rgb(0 0 0 / 0.1);
+  background: rgb(168 85 247 / 0.12);
   transform: scale(1.1);
 }
 
@@ -332,7 +329,7 @@
 }
 
 .hero-social-link:hover .hero-social-icon {
-  color: #111827;
+  color: #a855f7;
 }
 
 .hero-social-list li:nth-child(2) {

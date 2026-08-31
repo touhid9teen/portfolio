@@ -12,10 +12,13 @@
   --color-bg: #ffffff;
   --color-fg: #1a1a1a;
   --color-fg-muted: #6b7280;
-  --color-accent: #3b82f6;
+  --color-accent: #a855f7;
+  --color-accent-light: #c084fc;
+  --color-accent-dark: #9333ea;
   
   --font-mono: "Monaspace Neon", monospace;
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-display: "Sora", sans-serif;
   --font-recoleta: "Recoleta", serif;
 }
 
