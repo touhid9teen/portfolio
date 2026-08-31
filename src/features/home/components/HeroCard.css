@@ -153,19 +153,6 @@
 
 
 
-.hero-badge {
-  margin-bottom: 0;
-  border-radius: 18px;
-  padding: 0.25rem 0.875rem;
-  font-family: var(--font-mono);
-  font-size: var(--hero-badge-font-size);
-  letter-spacing: var(--hero-badge-tracking);
-  text-transform: uppercase;
-  color: var(--hero-badge-color);
-  text-shadow: var(--hero-badge-shadow);
-  animation-delay: 380ms;
-}
-
 .hero-name {
   margin-bottom: 0.1rem;
   border-radius: 28px;
@@ -176,7 +163,15 @@
   letter-spacing: -0.03em;
   color: var(--hero-name-color);
   text-shadow: var(--hero-name-shadow);
+  white-space: nowrap;
   animation-delay: 560ms;
+}
+
+.hero-greeting {
+  font-size: var(--hero-role-font-size);
+  font-weight: 600;
+  color: var(--hero-role-color);
+  letter-spacing: 0;
 }
 
 .hero-role {

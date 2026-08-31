@@ -32,8 +32,9 @@ export default function HeroCard() {
         </div>
 
         <div className="hero-copy">
-          <p className="hero-badge hero-block">{heroContent.greeting}</p>
-          <h1 className="hero-name hero-block">{heroContent.name}</h1>
+          <h1 className="hero-name hero-block">
+            <span className="hero-greeting">{heroContent.greeting}</span> {heroContent.name}
+          </h1>
           <h2 className="hero-role hero-block">
             {heroContent.rolePrefix}{" "}
             <a
