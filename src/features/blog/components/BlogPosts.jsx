@@ -15,7 +15,7 @@ export default function BlogPosts() {
             className="border-t border-[#e5e7eb] py-5 first:border-t-0"
           >
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
-              <span className="shrink-0 font-mono text-[0.72rem] font-medium uppercase tracking-[0.12em] text-[#9ca3af] sm:text-[0.75rem]">
+              <span className="shrink-0 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-[#9ca3af] sm:text-[0.75rem]">
                 {post.date}
               </span>
 
