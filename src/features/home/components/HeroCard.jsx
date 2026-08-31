@@ -10,7 +10,7 @@ const socialIcons = {
   email: Mail,
 };
 
-export default function HeroCard({ onNavigate }) {
+export default function HeroCard() {
   return (
     <header className="hero-shell">
       <div className="hero-panel">
@@ -71,12 +71,6 @@ export default function HeroCard({ onNavigate }) {
             })}
           </ul>
 
-          <button
-            className="hero-blog-btn"
-            onClick={() => onNavigate && onNavigate("/blog")}
-          >
-            blog
-          </button>
         </div>
       </div>
     </header>

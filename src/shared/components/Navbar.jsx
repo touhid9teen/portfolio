@@ -14,7 +14,7 @@ export default function Navbar({ pathname, onNavigate }) {
     }`;
 
   return (
-    <nav className="flex justify-center items-center w-full py-3">
+    <nav className="flex justify-end items-center w-full py-3">
       <div className="flex items-center gap-2 font-mono">
         <a
           href="/"
