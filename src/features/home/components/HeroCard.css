@@ -3,15 +3,10 @@
   --hero-glass-shadow: none;
   --hero-social-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --hero-badge-color: #374151;
-  --hero-badge-shadow: none;
   --hero-name-color: #111827;
-  --hero-name-shadow: none;
   --hero-role-color: #374151;
-  --hero-role-shadow: none;
   --hero-link-color: #a855f7;
-  --hero-link-shadow: none;
   --hero-meta-color: #374151;
-  --hero-meta-shadow: none;
   --hero-stack-gap: 0.15rem;
   --hero-panel-px: 1rem;
   --hero-panel-py: 0.75rem;
@@ -162,7 +157,6 @@
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--hero-name-color);
-  text-shadow: var(--hero-name-shadow);
   white-space: nowrap;
   animation-delay: 560ms;
 }
@@ -180,7 +174,6 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--hero-role-color);
-  text-shadow: var(--hero-role-shadow);
   animation-delay: 740ms;
 }
 
@@ -208,7 +201,6 @@
   letter-spacing: var(--hero-meta-tracking);
   text-transform: uppercase;
   color: var(--hero-meta-color);
-  text-shadow: var(--hero-meta-shadow);
   animation-delay: 920ms;
 }
 

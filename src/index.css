@@ -24,4 +24,12 @@
 body {
   @apply bg-bg text-fg font-sans min-h-screen selection:bg-accent/30;
   transition: opacity ease-in 0.2s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+*, *::before, *::after {
+  text-shadow: none !important;
+  box-shadow: none !important;
 }
