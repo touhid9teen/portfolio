@@ -23,7 +23,7 @@ function App() {
         RAINBOW_MODE={false}
         COLOR="#A855F7"
       />
-      <div className="fixed top-0 right-0 z-50 p-4">
+      <div className="fixed top-0 left-[60%] -translate-x-1/2 z-50 p-4">
         <div className={`scene-nav ${getNavStageClass(scene.navStage)}`}>
           <Navbar pathname={scene.pathname} onNavigate={scene.handleNavigate} />
         </div>
