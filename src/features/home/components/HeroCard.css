@@ -2,7 +2,7 @@
   --hero-glass-bg: rgb(0 0 0 / 0.03);
   --hero-glass-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
   --hero-social-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --hero-badge-color: #a855f7;
+  --hero-badge-color: #6b7280;
   --hero-badge-shadow: none;
   --hero-name-color: #111827;
   --hero-name-shadow: none;
@@ -23,7 +23,7 @@
   --hero-avatar-image-grayscale: 1;
   --hero-badge-font-size: 11px;
   --hero-badge-tracking: 0.22em;
-  --hero-name-font-size: 1.75rem;
+  --hero-name-font-size: 1.5rem;
   --hero-role-font-size: 1.08rem;
   --hero-meta-font-size: 11px;
   --hero-meta-tracking: 0.16em;
@@ -59,7 +59,7 @@
     --hero-avatar-image-position-y: 24%;
     --hero-badge-font-size: 12px;
     --hero-badge-tracking: 0.24em;
-    --hero-name-font-size: 2.15rem;
+    --hero-name-font-size: 1.85rem;
     --hero-role-font-size: 1.2rem;
     --hero-meta-font-size: 12px;
     --hero-meta-tracking: 0.18em;
@@ -73,7 +73,7 @@
     --hero-avatar-image-position-y: 25%;
     --hero-badge-font-size: 13px;
     --hero-badge-tracking: 0.28em;
-    --hero-name-font-size: 2.75rem;
+    --hero-name-font-size: 2.35rem;
     --hero-role-font-size: 1.42rem;
     --hero-meta-font-size: 13px;
     --hero-meta-tracking: 0.2em;
@@ -163,8 +163,7 @@
   transform: scale(var(--hero-avatar-image-scale));
   object-fit: cover;
   object-position: center var(--hero-avatar-image-position-y);
-  filter: grayscale(var(--hero-avatar-image-grayscale)) brightness(1.06)
-    contrast(1.08);
+  filter: grayscale(1) brightness(0.85) contrast(1.1);
   animation: hero-avatar-drift 10.5s ease-in-out infinite;
 }
 
@@ -282,7 +281,7 @@
 
 .hero-meta-icon {
   flex-shrink: 0;
-  color: #a855f7;
+  color: #6b7280;
 }
 
 .hero-social-list {
