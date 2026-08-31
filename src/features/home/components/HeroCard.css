@@ -1,6 +1,6 @@
 :root {
-  --hero-glass-bg: rgb(0 0 0 / 0.03);
-  --hero-glass-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+  --hero-glass-bg: transparent;
+  --hero-glass-shadow: none;
   --hero-social-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --hero-badge-color: #6b7280;
   --hero-badge-shadow: none;
@@ -12,9 +12,9 @@
   --hero-link-shadow: none;
   --hero-meta-color: #6b7280;
   --hero-meta-shadow: none;
-  --hero-stack-gap: 0.5rem;
-  --hero-panel-px: 1.5rem;
-  --hero-panel-py: 1.75rem;
+  --hero-stack-gap: 0.15rem;
+  --hero-panel-px: 1rem;
+  --hero-panel-py: 0.75rem;
   --hero-avatar-card-px: 0.875rem;
   --hero-avatar-card-py: 0.5rem;
   --hero-avatar-frame-size: 68px;
@@ -34,8 +34,8 @@
 
 @media (max-width: 639px) {
   :root {
-    --hero-panel-px: 1rem;
-    --hero-panel-py: 1.25rem;
+    --hero-panel-px: 0.75rem;
+    --hero-panel-py: 0.5rem;
     --hero-avatar-card-py: 0.375rem;
     --hero-avatar-frame-size: 64px;
     --hero-avatar-image-scale: 1.08;
@@ -213,7 +213,7 @@
 }
 
 .hero-badge {
-  margin-bottom: 0.125rem;
+  margin-bottom: 0;
   border-radius: 18px;
   padding: 0.25rem 0.875rem;
   font-family: var(--font-mono);
@@ -226,7 +226,7 @@
 }
 
 .hero-name {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
   border-radius: 28px;
   padding: 0.5rem 1.125rem;
   font-size: var(--hero-name-font-size);
@@ -239,7 +239,7 @@
 }
 
 .hero-role {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   border-radius: 26px;
   padding: 0.375rem 1.125rem;
   font-size: var(--hero-role-font-size);
@@ -263,7 +263,7 @@
 }
 
 .hero-meta {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;

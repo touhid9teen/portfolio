@@ -10,7 +10,7 @@ function App() {
   const scene = useSceneController();
 
   return (
-    <div className="relative isolate min-h-screen">
+    <div className="relative isolate min-h-screen flex flex-col justify-center">
       <SplashCursor
         DENSITY_DISSIPATION={3.5}
         VELOCITY_DISSIPATION={2}
@@ -24,7 +24,7 @@ function App() {
         COLOR="#A855F7"
       />
       <div
-        className={`relative z-10 mx-auto max-w-3xl px-6 py-12 max-sm:px-4 max-sm:py-6 ${
+        className={`relative z-10 mx-auto max-w-3xl px-6 py-4 max-sm:px-4 max-sm:py-2 ${
           scene.isTransitioning ? "pointer-events-none" : ""
         }`}
       >
