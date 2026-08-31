@@ -50,6 +50,11 @@ function App() {
           </section>
         ) : null}
       </div>
+      <footer className="relative z-10 text-center py-6">
+        <p className="text-[0.7rem] font-mono text-[#9ca3af] tracking-wide">
+          © {new Date().getFullYear()} touhid. all rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
