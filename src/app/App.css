@@ -17,6 +17,75 @@
   pointer-events: none;
 }
 
+/* Decorative corner accents (home only) — full-screen layer that mounts
+   with the hero stage so the corners share the panel enter/exit animation,
+   while each corner fades in with its own clockwise stagger. */
+.corner-decor-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity, transform, filter;
+}
+
+.corner-decor {
+  position: absolute;
+  z-index: 0;
+  width: clamp(160px, 30vmin, 420px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  /* All four corners reveal together with the panel — no stagger,
+     so the whole scene (content + corners) opens as one unit. */
+  opacity: 0;
+  animation: corner-decor-reveal 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Opacity-only keyframes so the rotation transforms are never overwritten */
+@keyframes corner-decor-reveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.85;
+  }
+}
+
+/* Rotation progresses clockwise around the screen: 90° → 180° → 270° → 360° */
+.corner-decor--tl {
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+}
+
+/* (rotations stay untouched by the reveal animation above) */
+
+.corner-decor--tr {
+  top: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.corner-decor--br {
+  bottom: 0;
+  right: 0;
+  transform: rotate(270deg); /* same as -90°, keeps the clockwise progression */
+}
+
+.corner-decor--bl {
+  bottom: 0;
+  left: 0;
+  transform: rotate(360deg);
+}
+
+/* Keep the one-screen fit intact on small/short screens */
+@media (max-width: 639px), (max-height: 560px) {
+  .corner-decor {
+    display: none;
+  }
+}
+
 .scene-stage {
   position: relative;
 }

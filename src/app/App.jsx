@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useCallback } from "react";
+import cornerImage from "../assets/pngegg4.png";
 import Loader from "../shared/components/Loader";
 import SplashCursor from "../shared/components/SplashCursor";
 import BlogPosts from "../features/blog/components/BlogPosts";
@@ -25,6 +26,18 @@ function App() {
           : "h-dvh overflow-hidden" /* home always fits exactly one screen — no scroll */
       }`}
     >
+      {/* Decorative corner accents — home only, one per corner, rotated
+          clockwise: 90° → 180° → 270° → 360°. Mounted under the exact same
+          condition and with the same panel class as the hero, so the corners
+          always enter and exit together with the content — never before it. */}
+      {scene.pathname === "/" && scene.showHomeStage && scene.heroStage !== "hidden" && (
+        <div className={`corner-decor-layer scene-panel ${getHeroStageClass(scene.heroStage)}`}>
+          <img className="corner-decor corner-decor--tl" src={cornerImage} alt="" aria-hidden="true" decoding="async" draggable="false" />
+          <img className="corner-decor corner-decor--tr" src={cornerImage} alt="" aria-hidden="true" decoding="async" draggable="false" />
+          <img className="corner-decor corner-decor--br" src={cornerImage} alt="" aria-hidden="true" decoding="async" draggable="false" />
+          <img className="corner-decor corner-decor--bl" src={cornerImage} alt="" aria-hidden="true" decoding="async" draggable="false" />
+        </div>
+      )}
       <div
         className={`flex-1 min-h-0 flex flex-col transition-all duration-500 ${
           scene.pathname === "/blog"
