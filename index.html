@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>touhid</title>
 
+    <!-- Load the display font before JS runs so the loader text and hero
+         render with final metrics immediately (no post-load reflow). -->
+    <link
+      rel="preload"
+      href="/fonts/recoleta/Recoleta-RegularDEMO.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
   </head>
   <body class="bg-bg text-fg min-h-screen">
     <div id="root"></div>

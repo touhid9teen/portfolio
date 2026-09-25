@@ -4,15 +4,38 @@ import renderAsciiGalaxy from "../galaxy/renderAsciiGalaxy";
 
 export default function AsciiGalaxy({ children, onNavigate, navStage, navStageClass }) {
   const containerRef = useRef(null);
+  const [viewport, setViewport] = useState(() => ({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  }));
   const [layout, setLayout] = useState(() =>
     getGalaxyLayout(window.innerWidth),
   );
 
   useEffect(() => {
-    const handleResize = () => setLayout(getGalaxyLayout(window.innerWidth));
+    const handleResize = () => {
+      setViewport({ width: window.innerWidth, height: window.innerHeight });
+      setLayout(getGalaxyLayout(window.innerWidth));
+    };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Fit the galaxy inside one screen: shrink it when the viewport is short.
+  // Reserved space covers the fixed nav, surrounding padding and footer.
+  const reservedHeight = layout.isMobile ? 170 : 210;
+  const minHeight = layout.isMobile ? 240 : 280;
+  const galaxyHeight = Math.max(
+    minHeight,
+    Math.min(layout.height, viewport.height - reservedHeight),
+  );
+  const heightScale = galaxyHeight / layout.height;
+  const preScale = (layout.isMobile ? layout.scale : 1) * heightScale;
+  const preTransform = layout.isMobile
+    ? `translate(-50%, -50%) scale(${preScale})`
+    : preScale < 1
+      ? `scale(${preScale})`
+      : undefined;
 
   useEffect(() => {
     let animationFrameId;
@@ -28,33 +51,34 @@ export default function AsciiGalaxy({ children, onNavigate, navStage, navStageCl
   return (
     <>
       <div
-        className="relative flex justify-center items-center mb-6 h-[607px] w-full"
-        style={
-          layout.isMobile
-            ? { height: `${layout.height}px`, overflow: "hidden" }
-            : { height: `${layout.height}px` }
-        }
+        className="relative flex justify-center items-center mb-6 w-full"
+        style={{
+          height: `${galaxyHeight}px`,
+          ...(layout.isMobile ? { overflow: "hidden" } : {}),
+        }}
       >
         <pre
           ref={containerRef}
           className="absolute w-max h-[607px] font-mono text-xs leading-[1.1] select-none z-0"
-          style={
-            layout.isMobile
+          style={{
+            fontFamily: '"Monaspace Neon", monospace',
+            ...(layout.isMobile
               ? {
-                  fontFamily: '"Monaspace Neon", monospace',
                   left: "50%",
                   top: "50%",
-                  transform: `translate(-50%, -50%) scale(${layout.scale})`,
                   transformOrigin: "center",
+                  transform: preTransform,
                 }
-              : { fontFamily: '"Monaspace Neon", monospace' }
-          }
+              : preTransform
+                ? { transformOrigin: "center", transform: preTransform }
+                : {}),
+          }}
         />
 
         {/* Arrow + More button — shown only after content loads, synced with nav bar */}
         {navStage !== "hidden" && (
           <div className={`hidden sm:block absolute inset-0 z-40 pointer-events-none scene-nav ${navStageClass}`}>
-            <a 
+            <a
               href="/portfolio/blog"
               onClick={(e) => {
                 e.preventDefault();

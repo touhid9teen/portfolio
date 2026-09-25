@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Reserve the scrollbar gutter so the viewport width stays identical
+   while the loader (unscrollable) hands off to real content (scrollable).
+   Prevents the whole layout shifting sideways on first reveal. */
+html {
+  scrollbar-gutter: stable;
+}
+
 @font-face {
   font-family: "Recoleta";
   src: url("/fonts/recoleta/Recoleta-RegularDEMO.woff") format("woff");

@@ -22,7 +22,8 @@
 }
 
 .scene-stage--home {
-  min-height: 607px;
+  /* Stage sizes to its content so home can always fit one screen */
+  min-height: 0;
 }
 
 .scene-stage--blog {

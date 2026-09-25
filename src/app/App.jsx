@@ -18,8 +18,20 @@ function App() {
   }
 
   return (
-    <div className="relative isolate min-h-screen flex flex-col">
-      <div className={`flex-1 flex flex-col transition-all duration-500 ${scene.pathname === '/blog' ? 'justify-start items-start pt-24' : 'justify-center items-center pt-56'}`}>
+    <div
+      className={`relative isolate flex flex-col ${
+        scene.pathname === "/blog"
+          ? "min-h-screen"
+          : "h-dvh overflow-hidden" /* home always fits exactly one screen — no scroll */
+      }`}
+    >
+      <div
+        className={`flex-1 min-h-0 flex flex-col transition-all duration-500 ${
+          scene.pathname === "/blog"
+            ? "justify-start items-start pt-24"
+            : "justify-center items-center" /* centered: fills the screen without scroll */
+        }`}
+      >
       <SplashCursor
         DENSITY_DISSIPATION={3.5}
         VELOCITY_DISSIPATION={2}
@@ -60,9 +72,9 @@ function App() {
         ) : null}
       </div>
       </div>
-      <footer className={`relative z-10 text-center py-6 mt-auto transition-all duration-500 ${scene.isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
+      <footer className={`relative z-10 text-center py-3 sm:py-4 mt-auto transition-all duration-500 ${scene.isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
         <p className="text-[0.7rem] font-mono text-[#9ca3af] tracking-wide">
-          © {new Date().getFullYear()} touhid. all rights reserved.
+          © {new Date().getFullYear()}. all rights reserved.
         </p>
       </footer>
     </div>

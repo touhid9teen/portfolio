@@ -75,6 +75,75 @@
   }
 }
 
+/* ---- Short viewports (landscape phones / small laptop screens) ----
+   Home must fit one screen, so when height is limited, compact the hero
+   regardless of width. Ranges chosen to not fight the width queries. */
+@media (max-height: 820px) and (min-width: 640px) {
+  :root {
+    --hero-avatar-frame-size: 64px;
+    --hero-avatar-image-scale: 1.1;
+    --hero-name-font-size: 1.7rem;
+    --hero-role-font-size: 1.1rem;
+    --hero-meta-font-size: 11px;
+    --hero-stack-gap: 0.05rem;
+  }
+}
+
+@media (max-height: 640px) and (min-width: 640px) {
+  :root {
+    --hero-avatar-frame-size: 52px;
+    --hero-avatar-image-scale: 1.05;
+    --hero-name-font-size: 1.35rem;
+    --hero-role-font-size: 0.95rem;
+    --hero-meta-font-size: 10px;
+    --hero-stack-gap: 0;
+  }
+
+  .hero-name,
+  .hero-role,
+  .hero-meta {
+    padding-block: 0.2rem;
+  }
+
+  .hero-meta {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-height: 640px) and (max-width: 639px) {
+  :root {
+    --hero-avatar-frame-size: 48px;
+    --hero-avatar-image-scale: 1.05;
+    --hero-name-font-size: 1.3rem;
+    --hero-role-font-size: 0.9rem;
+    --hero-meta-font-size: 9px;
+    --hero-stack-gap: 0;
+  }
+
+  .hero-name,
+  .hero-role,
+  .hero-meta {
+    padding-block: 0.2rem;
+  }
+
+  .hero-meta {
+    margin-bottom: 0.2rem;
+  }
+}
+
+/* Frame image: never taller than the available block, shrink on short screens */
+@media (max-height: 640px) {
+  .hero-frame {
+    width: min(320px, 115%);
+  }
+}
+
+@media (max-height: 450px) {
+  .hero-frame {
+    width: min(270px, 100%);
+  }
+}
+
 .hero-shell {
   position: relative;
   z-index: 10;
@@ -94,6 +163,39 @@
   text-align: center;
   font-family: var(--font-recoleta);
   animation: hero-panel-float 11.5s ease-in-out infinite;
+}
+
+/* Decorative frame image centered behind the hero content.
+   Absolute + percentage sizing so it scales fluidly with the panel and
+   never changes the layout box (no shift when the image decodes). */
+.hero-frame {
+  position: absolute;
+  left: 50%;
+  top: 54%; /* slightly below center — nudged up from 58% */
+  width: min(420px, 125%);
+  max-width: none;
+  height: auto;
+  /* Centering translate first, then the decorative tilt */
+  transform: translate(-50%, -50%) rotate(25deg);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.hero-panel--framed {
+  isolation: isolate;
+}
+
+/* Keep all real content above the decorative frame */
+.hero-panel--framed > :not(.hero-frame) {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-panel--framed .hero-frame {
+  z-index: 0;
 }
 
 .hero-copy {
@@ -322,6 +424,11 @@
     filter: none !important;
     opacity: 1 !important;
   }
+
+  /* Keep the centering translate — only strip the float animation */
+  .hero-frame {
+    animation: none !important;
+  }
 }
 
 @media (max-width: 639px) {
@@ -331,6 +438,10 @@
 
   .hero-panel {
     width: min(100%, 20rem);
+  }
+
+  .hero-frame {
+    width: 140%;
   }
 
   .hero-name,
