@@ -1,0 +1,52 @@
+.galaxy-3d {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.galaxy-3d canvas {
+  display: block;
+}
+
+.galaxy-3d--enter {
+  animation: galaxy-3d-enter 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.galaxy-3d--exit {
+  animation: galaxy-3d-exit 1100ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes galaxy-3d-enter {
+  from {
+    opacity: 0;
+    transform: scale(1.045);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes galaxy-3d-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-3d--enter,
+  .galaxy-3d--exit {
+    animation: none;
+    opacity: 1;
+  }
+}

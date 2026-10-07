@@ -9,7 +9,7 @@ export default function BlogPosts() {
       </h1>
 
       <ul className="space-y-0">
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <li
             key={`${post.date}-${post.url}`}
             className="border-t border-[#e5e7eb] py-5 first:border-t-0"

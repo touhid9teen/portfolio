@@ -1,146 +1,20 @@
 :root {
-  --hero-glass-bg: transparent;
-  --hero-glass-shadow: none;
-  --hero-social-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --hero-badge-color: #374151;
   --hero-name-color: #111827;
+  --hero-greeting-color: #111827;
+  --hero-subtitle-color: #4b5563;
   --hero-role-color: #374151;
   --hero-link-color: #a855f7;
   --hero-meta-color: #374151;
-  --hero-stack-gap: 0.15rem;
-  --hero-panel-px: 1rem;
-  --hero-panel-py: 0.75rem;
-  --hero-avatar-card-px: 0.875rem;
-  --hero-avatar-card-py: 0.5rem;
-  --hero-avatar-frame-size: 68px;
-  --hero-avatar-image-scale: 1.14;
-  --hero-avatar-image-position-y: 22%;
-  --hero-avatar-image-grayscale: 1;
-  --hero-badge-font-size: 11px;
-  --hero-badge-tracking: 0.22em;
-  --hero-name-font-size: 1.5rem;
-  --hero-role-font-size: 1.08rem;
-  --hero-meta-font-size: 11px;
-  --hero-meta-tracking: 0.16em;
-  --hero-social-gap: 0.875rem;
-  --hero-social-padding: 0.75rem;
+  --hero-avatar-size: 88px;
+  --hero-social-gap: 0.5rem;
+  --hero-social-padding: 0.6rem;
   --hero-social-icon-size: 1.25rem;
 }
 
 @media (max-width: 639px) {
   :root {
-    --hero-panel-px: 0.75rem;
-    --hero-panel-py: 0.5rem;
-    --hero-avatar-card-py: 0.375rem;
-    --hero-avatar-frame-size: 64px;
-    --hero-avatar-image-scale: 1.08;
-    --hero-avatar-image-position-y: 20%;
-    --hero-badge-font-size: 9px;
-    --hero-badge-tracking: 0.18em;
-    --hero-name-font-size: 1.55rem;
-    --hero-role-font-size: 0.98rem;
-    --hero-meta-font-size: 9px;
-    --hero-meta-tracking: 0.12em;
-    --hero-social-gap: 0.625rem;
-    --hero-social-padding: 0.625rem;
+    --hero-avatar-size: 78px;
     --hero-social-icon-size: 1.125rem;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --hero-avatar-frame-size: 76px;
-    --hero-avatar-image-scale: 1.16;
-    --hero-avatar-image-position-y: 24%;
-    --hero-badge-font-size: 12px;
-    --hero-badge-tracking: 0.24em;
-    --hero-name-font-size: 1.85rem;
-    --hero-role-font-size: 1.2rem;
-    --hero-meta-font-size: 12px;
-    --hero-meta-tracking: 0.18em;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --hero-avatar-frame-size: 82px;
-    --hero-avatar-image-scale: 1.18;
-    --hero-avatar-image-position-y: 25%;
-    --hero-badge-font-size: 13px;
-    --hero-badge-tracking: 0.28em;
-    --hero-name-font-size: 2.35rem;
-    --hero-role-font-size: 1.42rem;
-    --hero-meta-font-size: 13px;
-    --hero-meta-tracking: 0.2em;
-  }
-}
-
-/* ---- Short viewports (landscape phones / small laptop screens) ----
-   Home must fit one screen, so when height is limited, compact the hero
-   regardless of width. Ranges chosen to not fight the width queries. */
-@media (max-height: 820px) and (min-width: 640px) {
-  :root {
-    --hero-avatar-frame-size: 64px;
-    --hero-avatar-image-scale: 1.1;
-    --hero-name-font-size: 1.7rem;
-    --hero-role-font-size: 1.1rem;
-    --hero-meta-font-size: 11px;
-    --hero-stack-gap: 0.05rem;
-  }
-}
-
-@media (max-height: 640px) and (min-width: 640px) {
-  :root {
-    --hero-avatar-frame-size: 52px;
-    --hero-avatar-image-scale: 1.05;
-    --hero-name-font-size: 1.35rem;
-    --hero-role-font-size: 0.95rem;
-    --hero-meta-font-size: 10px;
-    --hero-stack-gap: 0;
-  }
-
-  .hero-name,
-  .hero-role,
-  .hero-meta {
-    padding-block: 0.2rem;
-  }
-
-  .hero-meta {
-    margin-bottom: 0.25rem;
-  }
-}
-
-@media (max-height: 640px) and (max-width: 639px) {
-  :root {
-    --hero-avatar-frame-size: 48px;
-    --hero-avatar-image-scale: 1.05;
-    --hero-name-font-size: 1.3rem;
-    --hero-role-font-size: 0.9rem;
-    --hero-meta-font-size: 9px;
-    --hero-stack-gap: 0;
-  }
-
-  .hero-name,
-  .hero-role,
-  .hero-meta {
-    padding-block: 0.2rem;
-  }
-
-  .hero-meta {
-    margin-bottom: 0.2rem;
-  }
-}
-
-/* Frame image: never taller than the available block, shrink on short screens */
-@media (max-height: 640px) {
-  .hero-frame {
-    width: min(320px, 115%);
-  }
-}
-
-@media (max-height: 450px) {
-  .hero-frame {
-    width: min(270px, 100%);
   }
 }
 
@@ -158,125 +32,99 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--hero-stack-gap);
-  padding: var(--hero-panel-py) var(--hero-panel-px);
   text-align: center;
-  font-family: var(--font-recoleta);
+  font-family: var(--font-sans);
+  max-width: 44rem;
+  width: 100%;
   animation: hero-panel-float 11.5s ease-in-out infinite;
 }
 
-/* Decorative frame image centered behind the hero content.
-   Absolute + percentage sizing so it scales fluidly with the panel and
-   never changes the layout box (no shift when the image decodes). */
-.hero-frame {
-  position: absolute;
-  left: 50%;
-  top: 54%; /* slightly below center — nudged up from 58% */
-  width: min(420px, 125%);
-  max-width: none;
-  height: auto;
-  /* Centering translate first, then the decorative tilt */
-  transform: translate(-50%, -50%) rotate(25deg);
-  object-fit: contain;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  opacity: 0.9;
-}
-
-.hero-panel--framed {
-  isolation: isolate;
-}
-
-/* Keep all real content above the decorative frame */
-.hero-panel--framed > :not(.hero-frame) {
+.hero-avatar-card {
   position: relative;
-  z-index: 1;
+  margin-bottom: 1.25rem;
+  animation-delay: 100ms;
 }
 
-.hero-panel--framed .hero-frame {
-  z-index: 0;
+.hero-avatar-frame {
+  position: relative;
+  width: var(--hero-avatar-size);
+  height: var(--hero-avatar-size);
+  border-radius: 9999px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.hero-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transform: scale(1.14);
+  border-radius: 9999px;
+  filter: grayscale(1) brightness(0.88) contrast(1.1);
+  display: block;
+  animation: hero-avatar-drift 10.5s ease-in-out infinite;
 }
 
 .hero-copy {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.hero-block {
-  position: relative;
-  background: var(--hero-glass-bg);
-  box-shadow: var(--hero-glass-shadow);
-  animation: hero-block-reveal 1300ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.hero-avatar-card {
-  position: relative;
-  border-radius: 30px;
-  padding: var(--hero-avatar-card-py) var(--hero-avatar-card-px);
-  animation-delay: 180ms;
-}
-
-.hero-avatar-ring {
-  position: relative;
-  border-radius: 9999px;
-  padding: 0;
-}
-
-.hero-avatar-ring::before {
-  display: none;
-}
-
-.hero-avatar-frame {
-  position: relative;
-  width: var(--hero-avatar-frame-size);
-  height: var(--hero-avatar-frame-size);
-  overflow: hidden;
-  border: 3px solid #6b7280;
-  border-radius: 9999px;
-  background: transparent;
-}
-
-.hero-avatar-image {
   width: 100%;
-  height: 100%;
-  transform: scale(var(--hero-avatar-image-scale));
-  object-fit: cover;
-  object-position: center var(--hero-avatar-image-position-y);
-  filter: grayscale(1) brightness(0.85) contrast(1.1);
-  animation: hero-avatar-drift 10.5s ease-in-out infinite;
 }
 
-
-
-.hero-name {
-  margin-bottom: 0.1rem;
-  border-radius: 28px;
-  padding: 0.5rem 1.125rem;
-  font-size: var(--hero-role-font-size);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--hero-name-color);
-  white-space: nowrap;
-  animation-delay: 560ms;
-}
-
+/* Previous content, unchanged sizes */
 .hero-greeting {
+  font-size: 1.15rem;
   font-weight: 600;
-  color: var(--hero-role-color);
+  color: var(--hero-greeting-color);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+  animation-delay: 250ms;
 }
 
+.hero-headline {
+  font-size: clamp(2rem, 5.2vw, 3.25rem);
+  font-weight: 800;
+  color: var(--hero-name-color);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin-bottom: 1.1rem;
+  max-width: 44rem;
+  white-space: pre-line;
+  text-wrap: balance;
+  animation-delay: 400ms;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.875rem, 2.2vw, 1.025rem);
+  font-weight: 400;
+  color: var(--hero-subtitle-color);
+  line-height: 1.6;
+  max-width: 46rem;
+  margin-bottom: 1.85rem;
+  animation-delay: 550ms;
+}
+
+/* Two pinned lines: sentence 1, then sentence 2 (with the Upay link) */
+.hero-subtitle-line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Pasted-markup section: role + company */
 .hero-role {
-  margin-bottom: 0.25rem;
-  border-radius: 26px;
-  padding: 0.375rem 1.125rem;
-  font-size: var(--hero-role-font-size);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--hero-role-color);
-  animation-delay: 740ms;
+  animation-delay: 700ms;
 }
 
 .hero-company {
@@ -291,24 +139,35 @@
   color: #9333ea;
 }
 
+/* In the subtitle: keep text black, underline takes the accent color */
+.hero-subtitle .hero-company {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--hero-link-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.hero-subtitle .hero-company:hover {
+  color: var(--hero-link-color);
+}
+
 .hero-meta {
-  margin-bottom: 0.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  border-radius: 22px;
-  padding: 0.375rem 0.875rem;
-  font-size: var(--hero-meta-font-size);
+  gap: 0.4rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: var(--hero-meta-tracking);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--hero-meta-color);
-  animation-delay: 920ms;
+  animation-delay: 800ms;
 }
 
 .hero-meta-icon {
   flex-shrink: 0;
-  color: #374151;
+  color: var(--hero-meta-color);
 }
 
 .hero-social-list {
@@ -317,9 +176,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--hero-social-gap);
+  margin-top: 1.4rem;
   opacity: 0;
-  animation: hero-block-reveal 1300ms cubic-bezier(0.22, 1, 0.36, 1) 1120ms
-    forwards;
+  animation: hero-block-reveal 1100ms cubic-bezier(0.22, 1, 0.36, 1) 950ms forwards;
 }
 
 .hero-social-list li {
@@ -333,7 +192,6 @@
   padding: var(--hero-social-padding);
   border-radius: 9999px;
   background: rgb(0 0 0 / 0.04);
-  box-shadow: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -361,41 +219,40 @@
   animation-delay: 0.7s;
 }
 
+/* Animations matching the smooth app entrance */
+.hero-block {
+  position: relative;
+  animation: hero-block-reveal 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
 @keyframes hero-block-reveal {
   0% {
     opacity: 0;
-    transform: translate3d(0, 18px, 0) scale(0.96);
-    filter: blur(12px);
+    transform: translate3d(0, 16px, 0);
+    filter: blur(8px);
   }
-
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0);
     filter: blur(0);
   }
 }
 
 @keyframes hero-panel-float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translate3d(0, 0, 0);
   }
-
   50% {
-    transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -6px, 0);
   }
 }
 
 @keyframes hero-avatar-drift {
-  0%,
-  100% {
-    transform: scale(var(--hero-avatar-image-scale)) translate3d(0, 0, 0);
+  0%, 100% {
+    transform: scale(1.14) translate3d(0, 0, 0);
   }
-
   50% {
-    transform: scale(calc(var(--hero-avatar-image-scale) + 0.03))
-      translate3d(0, -1.5%, 0);
+    transform: scale(1.17) translate3d(0, -1px, 0);
   }
 }
 
@@ -410,48 +267,91 @@
   }
 }
 
+/* Responsive adjustments for short laptop / mobile screens */
+@media (max-height: 750px) {
+  .hero-avatar-card {
+    margin-bottom: 0.75rem;
+  }
+  .hero-greeting {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+  }
+  .hero-headline {
+    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+  .hero-subtitle {
+    margin-bottom: 1.25rem;
+  }
+  .hero-social-list {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-height: 600px) {
+  :root {
+    --hero-avatar-size: 60px;
+  }
+  .hero-avatar-card {
+    margin-bottom: 0.5rem;
+  }
+  .hero-greeting {
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+  }
+  .hero-headline {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 0.85rem;
+  }
+  .hero-social-list {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Mobile: shrink type and let text wrap naturally so nothing overflows.
+   The desktop-only pinned breaks (headline \n, subtitle lines) are relaxed here. */
+@media (max-width: 639px) {
+  .hero-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.55rem, 7vw, 1.95rem);
+    white-space: normal;
+    max-width: 100%;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    max-width: 100%;
+    margin-bottom: 1.35rem;
+  }
+
+  .hero-subtitle-line {
+    display: inline;
+    white-space: normal;
+  }
+
+  .hero-social-list {
+    margin-top: 1rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-panel,
   .hero-block,
-  .hero-avatar-ring,
-  .hero-avatar-ring::before,
   .hero-avatar-image,
-  .hero-orbit,
   .hero-social-list,
   .hero-social-list li {
     animation: none !important;
     transform: none !important;
     filter: none !important;
     opacity: 1 !important;
-  }
-
-  /* Keep the centering translate — only strip the float animation */
-  .hero-frame {
-    animation: none !important;
-  }
-}
-
-@media (max-width: 639px) {
-  .hero-shell {
-    padding-inline: 0.5rem;
-  }
-
-  .hero-panel {
-    width: min(100%, 20rem);
-  }
-
-  .hero-frame {
-    width: 140%;
-  }
-
-  .hero-name,
-  .hero-role,
-  .hero-meta {
-    max-width: 17rem;
-  }
-
-  .hero-meta {
-    flex-wrap: wrap;
-    justify-content: center;
   }
 }

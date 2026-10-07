@@ -1,8 +1,8 @@
 import { Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import frameImage from "../../../assets/pngegg2.png";
-import profilePic from "../../../assets/profile.webp";
+import profilePic from "../../../assets/profile-removebg-preview.png";
 import { heroContent, heroSocialLinks } from "../data/heroContent";
+import useHeroTilt3D from "../../../shared/hooks/useHeroTilt3D";
 import "./HeroCard.css";
 
 const socialIcons = {
@@ -12,54 +12,55 @@ const socialIcons = {
 };
 
 export default function HeroCard() {
+  const tiltRef = useHeroTilt3D();
+
   return (
     <header className="hero-shell">
-      <div className="hero-panel hero-panel--framed">
-        {/* Decorative frame behind the content — centered, responsive */}
-        <img
-          className="hero-frame"
-          src={frameImage}
-          alt=""
-          aria-hidden="true"
-          decoding="async"
-          draggable="false"
-        />
+      <div ref={tiltRef} className="hero-panel">
         <div className="hero-avatar-card hero-block">
-          <div className="hero-avatar-ring">
-            <div className="hero-avatar-frame">
-              <img
-                className="hero-avatar-image"
-                src={profilePic}
-                alt={heroContent.imageAlt}
-                width="460"
-                height="460"
-                loading="eager"
-                decoding="sync"
-                fetchPriority="high"
-              />
-            </div>
+          <div className="hero-avatar-frame">
+            <img
+              className="hero-avatar-image"
+              src={profilePic}
+              alt={heroContent.imageAlt || heroContent.name}
+              width="460"
+              height="460"
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
+            />
           </div>
         </div>
 
         <div className="hero-copy">
-          <h1 className="hero-name hero-block">
-            <span className="hero-greeting">{heroContent.greeting}</span> {heroContent.name}
-          </h1>
-          <h2 className="hero-role hero-block">
-            {heroContent.rolePrefix}{" "}
-            <a
-              className="hero-company"
-              href={heroContent.companyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {heroContent.companyName}
-            </a>
+          <h2 className="hero-greeting hero-block">
+            {heroContent.greeting}
           </h2>
-          <p className="hero-meta hero-block">
-            <MapPin className="hero-meta-icon" size={16} />
-            <span>{heroContent.location}</span>
+
+          <h1 className="hero-headline hero-block">
+            {heroContent.headline}
+          </h1>
+
+          <p className="hero-subtitle hero-block">
+            <span className="hero-subtitle-line">
+              A Frontend Engineer passionate about turning ideas into clean, intuitive web
+              experiences.
+            </span>{" "}
+            <span className="hero-subtitle-line">
+              Currently building thoughtful digital products at{" "}
+              <a
+                className="hero-company"
+                href={heroContent.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Upay
+              </a>
+              .
+            </span>
           </p>
+
+        
 
           <ul className="hero-social-list" aria-label="Social media">
             {heroSocialLinks.map((link) => {
@@ -80,7 +81,6 @@ export default function HeroCard() {
               );
             })}
           </ul>
-
         </div>
       </div>
     </header>
