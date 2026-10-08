@@ -42,7 +42,8 @@ function App() {
         COLOR_UPDATE_SPEED={10}
         SHADING
         RAINBOW_MODE={false}
-        COLOR="#A855F7"
+        // COLOR="#A855F7"
+        COLOR="#FF2D95"
       />
       <div className="fixed top-0 left-[60%] -translate-x-1/2 z-50 p-4">
         <div className={`scene-nav ${getNavStageClass(scene.navStage)}`}>
